@@ -1,0 +1,233 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6828418013398750428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6828418013398750430}
+  - component: {fileID: 6828418013398750431}
+  m_Layer: 0
+  m_Name: World
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6828418013398750430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6828418013398750428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.7387766, y: 2.4563975, z: 2.161751}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6828418013398750431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6828418013398750428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e387f3fac28cd24aab8814e6ee589eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: 340
+  biome: {fileID: 11400000, guid: 4d89dd19569e1a160a2284045ed39353, type: 2}
+  enableThreading: 1
+  globalLightLevel: 0
+  day: {r: 0.3220897, g: 0.57233685, b: 0.7264151, a: 0}
+  night: {r: 0, g: 0.019742085, b: 0.2264151, a: 0}
+  player: {fileID: 0}
+  lockCursor: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
+  gravity: -9.81
+  material: {fileID: 2100000, guid: 5903f54289f09fe438f643e36c400b1b, type: 2}
+  transparentMaterial: {fileID: 2100000, guid: bdb9503cd4f55e823a3b206cadf930ce, type: 2}
+  debugScreen: {fileID: 0}
+  inventoryWindow: {fileID: 0}
+  cursorSlot: {fileID: 0}
+  stackSize: 100
+  blockTypes:
+  - blockName: Air
+    isSolid: 0
+    isTransparent: 0
+    transparency: 0
+    icon: {fileID: 0}
+    designatedTool: 0
+    minLevel: 0
+    hardness: 0
+    isToolRequired: 0
+    itemEntity: {fileID: 0}
+    backFaceTexture: 3
+    frontFaceTexture: 3
+    topFaceTexture: 3
+    bottomFaceTexture: 3
+    leftFaceTexture: 3
+    rightFaceTexture: 3
+  - blockName: BaseStone
+    isSolid: 1
+    isTransparent: 0
+    transparency: 0
+    icon: {fileID: 4797087879180664911, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
+    designatedTool: 0
+    minLevel: 9
+    hardness: 0
+    isToolRequired: 0
+    itemEntity: {fileID: 0}
+    backFaceTexture: 3
+    frontFaceTexture: 3
+    topFaceTexture: 3
+    bottomFaceTexture: 3
+    leftFaceTexture: 3
+    rightFaceTexture: 3
+  - blockName: Dirt
+    isSolid: 1
+    isTransparent: 0
+    transparency: 0
+    icon: {fileID: -6160423092070868502, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
+    designatedTool: 2
+    minLevel: 0
+    hardness: 0
+    isToolRequired: 0
+    itemEntity: {fileID: 8777829575375547417, guid: 3057c7bbebd69dc20a12076797e99f0e,
+      type: 3}
+    backFaceTexture: 0
+    frontFaceTexture: 0
+    topFaceTexture: 0
+    bottomFaceTexture: 0
+    leftFaceTexture: 0
+    rightFaceTexture: 0
+  - blockName: Grass
+    isSolid: 1
+    isTransparent: 0
+    transparency: 0
+    icon: {fileID: 1618703092976352100, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
+    designatedTool: 2
+    minLevel: 0
+    hardness: 0
+    isToolRequired: 0
+    itemEntity: {fileID: 8777829575375547417, guid: 3057c7bbebd69dc20a12076797e99f0e,
+      type: 3}
+    backFaceTexture: 2
+    frontFaceTexture: 2
+    topFaceTexture: 1
+    bottomFaceTexture: 0
+    leftFaceTexture: 2
+    rightFaceTexture: 2
+  - blockName: Sand
+    isSolid: 1
+    isTransparent: 0
+    transparency: 0
+    icon: {fileID: 800693517439831699, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
+    designatedTool: 2
+    minLevel: 0
+    hardness: 0
+    isToolRequired: 0
+    itemEntity: {fileID: 2702926705090733459, guid: 3594189b0ae65dcffa9c1971951b301d,
+      type: 3}
+    backFaceTexture: 5
+    frontFaceTexture: 5
+    topFaceTexture: 5
+    bottomFaceTexture: 5
+    leftFaceTexture: 5
+    rightFaceTexture: 5
+  - blockName: Stone
+    isSolid: 1
+    isTransparent: 0
+    transparency: 0
+    icon: {fileID: 9052812637306524327, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
+    designatedTool: 3
+    minLevel: 0
+    hardness: 1
+    isToolRequired: 1
+    itemEntity: {fileID: 4798839856617122660, guid: 1b93aac8b5ae72f8b8b9b0b95565378a,
+      type: 3}
+    backFaceTexture: 4
+    frontFaceTexture: 4
+    topFaceTexture: 4
+    bottomFaceTexture: 4
+    leftFaceTexture: 4
+    rightFaceTexture: 4
+  - blockName: Wood
+    isSolid: 1
+    isTransparent: 1
+    transparency: 0
+    icon: {fileID: 585779414760027842, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
+    designatedTool: 1
+    minLevel: 0
+    hardness: 0
+    isToolRequired: 0
+    itemEntity: {fileID: 9057335336550134455, guid: f7eacf3467bd4ec1591b2f4f17ece593,
+      type: 3}
+    backFaceTexture: 7
+    frontFaceTexture: 7
+    topFaceTexture: 8
+    bottomFaceTexture: 8
+    leftFaceTexture: 7
+    rightFaceTexture: 7
+  - blockName: Glass
+    isSolid: 1
+    isTransparent: 1
+    transparency: 0
+    icon: {fileID: 6321769357220463774, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
+    designatedTool: 0
+    minLevel: 0
+    hardness: 0
+    isToolRequired: 0
+    itemEntity: {fileID: 0}
+    backFaceTexture: 6
+    frontFaceTexture: 6
+    topFaceTexture: 6
+    bottomFaceTexture: 6
+    leftFaceTexture: 6
+    rightFaceTexture: 6
+  - blockName: Leaves
+    isSolid: 1
+    isTransparent: 1
+    transparency: 0
+    icon: {fileID: 7374845061861626600, guid: 59b118112657a5229b9e90ee5235b2dc, type: 3}
+    designatedTool: 0
+    minLevel: 0
+    hardness: 0
+    isToolRequired: 0
+    itemEntity: {fileID: 0}
+    backFaceTexture: 9
+    frontFaceTexture: 9
+    topFaceTexture: 9
+    bottomFaceTexture: 9
+    leftFaceTexture: 9
+    rightFaceTexture: 9
+  itemTypes:
+  - itemName: Wood_Axe
+    icon: {fileID: 21300000, guid: 144b8e59eefe6058d801bd0902099510, type: 3}
+    toolType: 1
+    level: 0
+    isStackable: 0
+    itemEntity: {fileID: 7744634822215792435, guid: 54bb5c2e9faba0f798b4ee84d5f105c6,
+      type: 3}
+  - itemName: Wood_Shovel
+    icon: {fileID: 21300000, guid: f9777a1bedd8db32ebc46bd758e70920, type: 3}
+    toolType: 2
+    level: 0
+    isStackable: 0
+    itemEntity: {fileID: 0}
+  - itemName: Wood_Pick_Axe
+    icon: {fileID: 21300000, guid: da0909509dd6cc7ff8ecb00d47f1c010, type: 3}
+    toolType: 3
+    level: 0
+    isStackable: 0
+    itemEntity: {fileID: 7985471210273205928, guid: e4f6fd23bc7fa2fea93c86bac7bb5689,
+      type: 3}
+  itemIDOffset: 9

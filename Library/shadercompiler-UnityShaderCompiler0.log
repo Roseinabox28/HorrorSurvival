@@ -1,0 +1,12 @@
+Base path: '/home/rose/Documents/UnityEditors/2019.4.15f1/Editor/Data', plugins path '/home/rose/Documents/UnityEditors/2019.4.15f1/Editor/Data/PlaybackEngines'
+Cmd: initializeCompiler
+Cmd: preprocess
+  insize=549 outsize=546 ok=1
+Cmd: preprocess
+  insize=1868 outsize=365 ok=1
+Cmd: preprocess
+  insize=2414 outsize=2035 ok=1
+Cmd: preprocess
+  insize=1883 outsize=779 ok=1
+Cmd: preprocess
+  insize=1867 outsize=364 ok=1
