@@ -94,7 +94,10 @@ public class Player : MonoBehaviour
                 else
                     exhaustion += 0.075f;
             }
-            
+            if(isSprinting)
+            {
+               HungerCalculations(); 
+            }
         
             if(exhaustion >= 4f)
             {
@@ -311,13 +314,24 @@ public class Player : MonoBehaviour
 
 
         if((velocity.z > 0 && front) || (velocity.z < 0 && back))
+        {
             velocity.z = 0;
+            isSprintingOffset = 0f;
+        }
         if((velocity.x > 0 && right) || (velocity.x < 0 && left))
+        {
             velocity.x = 0;
+            isSprintingOffset = 0f;
+        }
         if(velocity.y < 0)
+        {
             velocity.y = CheckDownSpeed(velocity.y);
+        }
         else if(velocity.y > 0)
+        {
             velocity.y = CheckUpSpeed(velocity.y);
+        }
+            
 
 
 
