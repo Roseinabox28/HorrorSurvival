@@ -8,7 +8,7 @@ public class MouseLook : MonoBehaviour
 
     public Transform playerBody;
 
-    
+    World world;
 
     public bool inUI;
 
@@ -19,7 +19,7 @@ public class MouseLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+       world = GameObject.Find("World").GetComponent<World>();
         
     }
 
@@ -27,7 +27,7 @@ public class MouseLook : MonoBehaviour
     void Update()
     {
 
-         
+        mouseSensitivity = world.settings.mouseSensitivity;
 
         if(!inUI)
         {

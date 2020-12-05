@@ -43,12 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e387f3fac28cd24aab8814e6ee589eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 340
+  settings:
+    version: pre-alpha-0.1
+    viewDistance: 4
+    enableThreading: 1
+    mouseSensitivity: 100
+    seed: 1234
   biome: {fileID: 11400000, guid: 4d89dd19569e1a160a2284045ed39353, type: 2}
-  enableThreading: 1
-  globalLightLevel: 0
-  day: {r: 0.3220897, g: 0.57233685, b: 0.7264151, a: 0}
-  night: {r: 0, g: 0.019742085, b: 0.2264151, a: 0}
   player: {fileID: 0}
   lockCursor: 1
   spawnPosition: {x: 0, y: 0, z: 0}
