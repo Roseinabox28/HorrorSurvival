@@ -332,7 +332,7 @@ public class Player : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        if(Input.GetButtonDown("Sprint"))
+        if(Input.GetAxis("Sprint") != 0)
         {
             
             isSprinting = true;
@@ -340,7 +340,7 @@ public class Player : MonoBehaviour
             
             
         }
-        else if (Input.GetButtonUp("Sprint"))
+        else if (Input.GetAxis("Sprint") == 0)
         {
             isSprinting = false;
         }
