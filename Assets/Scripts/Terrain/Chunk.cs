@@ -29,6 +29,7 @@ public class Chunk {
 
     World world;
     
+    
     private bool _isActive;
     private bool isVoxelMapPopulated = false;
     private bool threadLocked = false;
@@ -37,6 +38,7 @@ public class Chunk {
 
         coord = _coord;
         world = _world;
+        
         isActive = true;
 
         if (generateOnLoad)
@@ -247,14 +249,9 @@ public class Chunk {
 
                 int yPos = (int)pos.y + 1;
                 bool inShade = false;
-                while (yPos < VoxelData.chunkHeight) {
-                    if (voxelMap[(int)pos.x, yPos, (int)pos.z] != 0) {
-                        inShade = true;
-                        break;
-                    }
 
-                    yPos++;
-                }
+                
+                
 
                 if (inShade)
                     lightLevel = 0.5f;

@@ -81,7 +81,7 @@ public class World : MonoBehaviour
 
         playerChunkCoord = GetChunkCoordFromVector3(player.position);
 
-        Shader.SetGlobalFloat("GlobalLightLevel", globalLightLevel);
+        Shader.SetGlobalFloat("localLightLevel", globalLightLevel);
         Camera.main.backgroundColor = Color.Lerp(day, night, globalLightLevel);
 
         // Only update the chunks if the player has moved from the chunk they were previously on.
@@ -108,6 +108,8 @@ public class World : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F3))
             debugScreen.SetActive(!debugScreen.activeSelf);
+        
+
 
 
     }
@@ -292,6 +294,8 @@ public class World : MonoBehaviour
             else if(lockCursor)
             {
                 Cursor.lockState = CursorLockMode.Locked;
+                inventoryWindow.SetActive(false);
+                cursorSlot.SetActive(false);
                 
             }
             else

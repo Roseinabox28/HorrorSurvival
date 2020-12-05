@@ -5,18 +5,24 @@
         _MainTex ("Block Texture Atlas", 2D) = "white" {}
     }
 
+
+
     SubShader
     {
-        Tags {"Queue"="AlphaTest" "IgnoreProjector"="True" "RenderType"="TransparentCutout"}
-        LOD 100
-        Lighting On
+        
+        
 
         Pass 
         {
+            Tags {"Queue"="AlphaTest" "IgnoreProjector"="True" "RenderType"="TransparentCutout"}
+            LOD 100
+            Lighting On
             CGPROGRAM
+                //#pragma surface surf Standard fullforwardshadows
+                
                 #pragma vertex vertFunction
                 #pragma fragment fragFunction
-                #pragma target 2.0
+                #pragma target 3.0
 
                 #include "UnityCG.cginc"
 
@@ -39,6 +45,11 @@
                 float GlobalLightLevel;
                 float minGlobalLightLevel;
                 float maxGlobalLightLevel;
+                float localLightLevel;
+
+                half _Glossiness;
+                half _Metallic;
+                fixed4 _Color;
 
                 v2f vertFunction (appdata v)
                 {
@@ -56,7 +67,7 @@
                     fixed4 col = tex2D (_MainTex, i.uv);
 
                     //float shade = (maxGlobalLightLevel - minGlobalLightLevel) * GlobalLightLevel + minGlobalLightLevel;
-                    float localLightLevel = clamp(GlobalLightLevel + i.color.a, 0, 1);
+                    float lightLevel = clamp(localLightLevel + i.color.a, 0, 1);
 
                     clip(col.a - 1);
                     col = lerp(col, float4(0,0,0,1), localLightLevel);
@@ -64,8 +75,12 @@
                     return col;
                 }
 
+                
+
                 ENDCG
         }
+         // Pass to render object as a shadow caster
+       
     }
-
 }
+
