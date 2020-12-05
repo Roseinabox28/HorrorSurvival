@@ -70,9 +70,12 @@ public class Player : MonoBehaviour
         world = GameObject.Find("World").GetComponent<World>();
         cam = GameObject.Find("Camera").transform;
         mouselook = cam.GetComponent<MouseLook>();
+        world.inUI = false;
         mouselook.inUI = world.inUI;
         playerHealth = GetComponent<PlayerHealth>();
         gravity = world.gravity;
+
+        
         
     }
 
@@ -323,6 +326,9 @@ public class Player : MonoBehaviour
 
     private void GetPlayerInputs()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 

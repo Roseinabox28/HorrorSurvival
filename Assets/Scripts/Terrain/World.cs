@@ -62,9 +62,12 @@ public class World : MonoBehaviour
     private void Start() 
     {
 
-        string jsonExport = JsonUtility.ToJson(settings);
+        //string jsonExport = JsonUtility.ToJson(settings);
 
-        File.WriteAllText(Application.dataPath + "/Data/Settings/settings.cfg", jsonExport);
+        //File.WriteAllText(Application.dataPath + "/Data/Settings/settings.cfg", jsonExport);
+
+        //string jsonImport = File.ReadAllText(Application.dataPath + "/Data/Settings/settings.cfg");
+        //settings = JsonUtility.FromJson<Settings>(jsonImport);
 
         Random.InitState(settings.seed);
         if(settings.enableThreading)
@@ -175,7 +178,8 @@ public class World : MonoBehaviour
                 if (chunksToUpdate[index].isEditable)
                 {
                     chunksToUpdate[index].UpdateChunk();
-                    activeChunks.Add(chunksToUpdate[index].coord);
+                    if(!activeChunks.Contains(chunksToUpdate[index].coord))
+                        activeChunks.Add(chunksToUpdate[index].coord);
                     chunksToUpdate.RemoveAt(index);
                     updated = true;
                 } 
@@ -264,12 +268,13 @@ public class World : MonoBehaviour
         {
             for(int z = coord.z - settings.viewDistance; z < coord.z + settings.viewDistance; z++ )
             {
-                if(IsChunkInWorld(new ChunkCoord(x,z)))
+                ChunkCoord thisChunkCoord = new ChunkCoord(x,z);
+                if(IsChunkInWorld(thisChunkCoord))
                 {
                     if(chunks[x, z] == null)
                     {
-                        chunks[x,z] = new Chunk(new ChunkCoord(x,z), this);
-                        chunksToCreate.Add(new ChunkCoord (x,z));
+                        chunks[x,z] = new Chunk(thisChunkCoord, this);
+                        chunksToCreate.Add(thisChunkCoord);
                     }
                         
                     else if(!chunks[x,z].isActive)
@@ -277,14 +282,14 @@ public class World : MonoBehaviour
                         chunks[x,z].isActive = true;
                         
                     }
-                    activeChunks.Add(new ChunkCoord(x,z));
+                    activeChunks.Add(thisChunkCoord);
                         
                     
                 }
 
                 for(int i = 0; i < previouslyActiveChunks.Count; i++)
                 {
-                    if(previouslyActiveChunks[i].Equals(new ChunkCoord(x,z)))
+                    if(previouslyActiveChunks[i].Equals(thisChunkCoord))
                         previouslyActiveChunks.RemoveAt(i);
                 }
             }
@@ -339,6 +344,7 @@ public class World : MonoBehaviour
             if(_inUI)
             {
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 inventoryWindow.SetActive(true);
                 cursorSlot.SetActive(true);
             }
@@ -346,12 +352,14 @@ public class World : MonoBehaviour
             else if(lockCursor)
             {
                 Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 inventoryWindow.SetActive(false);
                 cursorSlot.SetActive(false);
                 
             }
             else
             {
+                Cursor.visible = false;
                 inventoryWindow.SetActive(false);
                 cursorSlot.SetActive(false);
             }
