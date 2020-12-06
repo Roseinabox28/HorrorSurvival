@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Grasslands
   m_EditorClassIdentifier: 
   biomeName: Grasslands
-  solidGroundHeight: 42
-  terrainHeight: 42
-  terrainScale: 0.25
+  offset: 1234
+  scale: 0.042
+  terrainHeight: 22
+  terrainScale: 0.15
   surfaceBlock: 3
   subsurfaceBlock: 2
   majorFloraIndex: 0
@@ -23,7 +24,7 @@ MonoBehaviour:
   majorFloraZoneThreshold: 0.6
   majorFloraPlacementScale: 15
   majorFloraPlacementThreshold: 0.8
-  placeMajorFlora: 1
+  placeMajorFlora: 0
   maxHeight: 12
   minHeight: 4
   lodes:

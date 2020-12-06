@@ -61,15 +61,13 @@ public class World : MonoBehaviour
 
     private void Start() 
     {
+        Debug.Log("Seed: " + VoxelData.seed);
+        
 
-        //string jsonExport = JsonUtility.ToJson(settings);
+        string jsonImport = File.ReadAllText(Application.dataPath + "/Data/Settings/settings.cfg");
+        settings = JsonUtility.FromJson<Settings>(jsonImport);
 
-        //File.WriteAllText(Application.dataPath + "/Data/Settings/settings.cfg", jsonExport);
-
-        //string jsonImport = File.ReadAllText(Application.dataPath + "/Data/Settings/settings.cfg");
-        //settings = JsonUtility.FromJson<Settings>(jsonImport);
-
-        Random.InitState(settings.seed);
+        Random.InitState(VoxelData.seed);
         if(settings.enableThreading)
         {
             chunkUpdateThread = new Thread(new ThreadStart(ThreadedUpdate));
@@ -583,17 +581,16 @@ public class VoxelMod
 public class Settings
 {
     [Header("Game Data")]
-    public string version;
+    public string version = "pre-alpha-0.1";
 
     [Header("Performance")]
-    public int viewDistance;
-    public bool enableThreading;
+    public int viewDistance = 5;
+    public bool enableThreading = true;
 
 
     [Header("Controls")]
     [Range(10f, 500f)]
-    public float mouseSensitivity;
+    public float mouseSensitivity = 100f;
 
-    [Header("World Gen")]
-    public int seed;
+    
 }
