@@ -259,6 +259,11 @@ PrefabInstance:
       propertyPath: blockTypes.Array.data[0].isTransparent
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828418013398750431, guid: 2fe59844de599cfc0ac13ff809f0794f,
+        type: 3}
+      propertyPath: blockTypes.Array.data[0].renderNeighborFaces
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe59844de599cfc0ac13ff809f0794f, type: 3}
 --- !u!1 &1154856955

@@ -45,10 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
     version: pre-alpha-0.1
+    loadDistance: 10
     viewDistance: 4
     enableThreading: 1
     mouseSensitivity: 100
-    seed: 1234
   biomes:
   - {fileID: 11400000, guid: 4d89dd19569e1a160a2284045ed39353, type: 2}
   - {fileID: 11400000, guid: acbfce2c621b148bc8c1d9f5e236978a, type: 2}
@@ -66,7 +66,7 @@ MonoBehaviour:
   blockTypes:
   - blockName: Air
     isSolid: 0
-    isTransparent: 0
+    renderNeighborFaces: 1
     transparency: 0
     icon: {fileID: 0}
     designatedTool: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     rightFaceTexture: 3
   - blockName: BaseStone
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
     transparency: 0
     icon: {fileID: 4797087879180664911, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
     designatedTool: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
     rightFaceTexture: 3
   - blockName: Dirt
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
     transparency: 0
     icon: {fileID: -6160423092070868502, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
     designatedTool: 2
@@ -115,7 +115,7 @@ MonoBehaviour:
     rightFaceTexture: 0
   - blockName: Grass
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
     transparency: 0
     icon: {fileID: 1618703092976352100, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
     designatedTool: 2
@@ -132,7 +132,7 @@ MonoBehaviour:
     rightFaceTexture: 2
   - blockName: Sand
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
     transparency: 0
     icon: {fileID: 800693517439831699, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
     designatedTool: 2
@@ -149,7 +149,7 @@ MonoBehaviour:
     rightFaceTexture: 5
   - blockName: Stone
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
     transparency: 0
     icon: {fileID: 9052812637306524327, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
     designatedTool: 3
@@ -166,7 +166,7 @@ MonoBehaviour:
     rightFaceTexture: 4
   - blockName: Wood
     isSolid: 1
-    isTransparent: 1
+    renderNeighborFaces: 0
     transparency: 0
     icon: {fileID: 585779414760027842, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
     designatedTool: 1
@@ -183,7 +183,7 @@ MonoBehaviour:
     rightFaceTexture: 7
   - blockName: Glass
     isSolid: 1
-    isTransparent: 1
+    renderNeighborFaces: 0
     transparency: 0
     icon: {fileID: 6321769357220463774, guid: 80929332179fb42ac9ef42cd491e0cc4, type: 3}
     designatedTool: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
     rightFaceTexture: 6
   - blockName: Leaves
     isSolid: 1
-    isTransparent: 1
+    renderNeighborFaces: 1
     transparency: 0
     icon: {fileID: 7374845061861626600, guid: 59b118112657a5229b9e90ee5235b2dc, type: 3}
     designatedTool: 0

@@ -382,27 +382,27 @@ public class Player : MonoBehaviour
                         Debug.Log("Item Level: " + world.itemTypes[(toolbar.slots[toolbar.slotIndex].itemSlot.stack.id - world.itemIDOffset)].level);
 
 
-                        Debug.Log("Tile name: " + world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].blockName);
-                        Debug.Log("Tile designated Level: " + world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].minLevel);
-                        Debug.Log("Tile designated tool: " + world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].designatedTool);
-                        Debug.Log("Tile hardness: " + world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].hardness);
+                        Debug.Log("Tile name: " + world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].blockName);
+                        Debug.Log("Tile designated Level: " + world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].minLevel);
+                        Debug.Log("Tile designated tool: " + world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].designatedTool);
+                        Debug.Log("Tile hardness: " + world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].hardness);
 
                         Debug.Log("Timer: " + timer);
 
                         
 
-                        if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].isToolRequired == true)
+                        if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].isToolRequired == true)
                         {
                             Debug.Log("Tool is required");
-                            if((int)world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].designatedTool == (int)world.itemTypes[(toolbar.slots[toolbar.slotIndex].itemSlot.stack.id - world.itemIDOffset)].toolType)
+                            if((int)world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].designatedTool == (int)world.itemTypes[(toolbar.slots[toolbar.slotIndex].itemSlot.stack.id - world.itemIDOffset)].toolType)
                             {
                                 Debug.Log("Types match");
-                                if(world.itemTypes[(toolbar.slots[toolbar.slotIndex].itemSlot.stack.id - world.itemIDOffset)].level >= world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].minLevel)
+                                if(world.itemTypes[(toolbar.slots[toolbar.slotIndex].itemSlot.stack.id - world.itemIDOffset)].level >= world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].minLevel)
                                 {
                                     Debug.Log("Item will drop");
-                                    if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].itemEntity != null)
+                                    if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].itemEntity != null)
                                     {
-                                        GameObject itemDrop = Instantiate(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].itemEntity, itemDropPosition, highlightBlock.rotation);
+                                        GameObject itemDrop = Instantiate(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].itemEntity, itemDropPosition, highlightBlock.rotation);
                                     }
                                     
                                 }
@@ -420,22 +420,22 @@ public class Player : MonoBehaviour
                         else
                         {
                             Debug.Log("Tool is not required");
-                            if((int)world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].designatedTool == (int)world.itemTypes[(toolbar.slots[toolbar.slotIndex].itemSlot.stack.id - world.itemIDOffset)].toolType)
+                            if((int)world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].designatedTool == (int)world.itemTypes[(toolbar.slots[toolbar.slotIndex].itemSlot.stack.id - world.itemIDOffset)].toolType)
                             {
                                 Debug.Log("Types match");
                                 Debug.Log("item will drop faster");
-                                if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].itemEntity != null)
+                                if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].itemEntity != null)
                                 {
-                                    GameObject itemDrop = Instantiate(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].itemEntity, itemDropPosition, highlightBlock.rotation);
+                                    GameObject itemDrop = Instantiate(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].itemEntity, itemDropPosition, highlightBlock.rotation);
                                 }
                             }
                             else
                             {
                                 Debug.Log("Types do not match");
                                 Debug.Log("item will not drop faster");
-                                if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].itemEntity != null)
+                                if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].itemEntity != null)
                                 {
-                                    GameObject itemDrop = Instantiate(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].itemEntity, itemDropPosition, highlightBlock.rotation);
+                                    GameObject itemDrop = Instantiate(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].itemEntity, itemDropPosition, highlightBlock.rotation);
                                 }
                             }
                         }
@@ -447,7 +447,7 @@ public class Player : MonoBehaviour
                     else
                     {
                         Debug.Log("player is using block");
-                        if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].isToolRequired == true)
+                        if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].isToolRequired == true)
                         {
                             Debug.Log("Tool is required");
                             Debug.Log("Item will not drop");
@@ -456,9 +456,9 @@ public class Player : MonoBehaviour
                         {
                             Debug.Log("Tool is not required");
                             Debug.Log("Item will drop");
-                            if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].itemEntity != null)
+                            if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].itemEntity != null)
                             {
-                                GameObject itemDrop = Instantiate(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].itemEntity, itemDropPosition, highlightBlock.rotation);
+                                GameObject itemDrop = Instantiate(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].itemEntity, itemDropPosition, highlightBlock.rotation);
                             }
                         }
                     }
@@ -467,16 +467,16 @@ public class Player : MonoBehaviour
                 else
                 {
                     Debug.Log("Player is using hand");
-                    if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].isToolRequired == true)
+                    if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].isToolRequired == true)
                     {
                         Debug.Log("Item will not drop");
                     }
                     else
                     {
                         Debug.Log("Item will drop");
-                        if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].itemEntity != null)
+                        if(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].itemEntity != null)
                         {
-                            GameObject itemDrop = Instantiate(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position)].itemEntity, itemDropPosition, highlightBlock.rotation);
+                            GameObject itemDrop = Instantiate(world.blockTypes[world.GetChunkFromVector3(highlightBlock.position).GetVoxelFromGlobalVector3(highlightBlock.position).id].itemEntity, itemDropPosition, highlightBlock.rotation);
                         }
                     }
                 }
