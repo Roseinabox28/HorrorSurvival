@@ -5,22 +5,30 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BiomeAttributes", menuName = "Horror Survival/Biome Attribute")]
 public class BiomeAttributes : ScriptableObject
 {
-    public string biomeName;
 
-    public int solidGroundHeight; 
+    [Header("Biome")]
+    public string biomeName;
+    public int offset;
+    public float scale;
+
     public int terrainHeight;
     public float terrainScale;
 
-    [Header("Trees")]
-    public float treeZoneScale = 1.3f;
-    [Range(0.1f,1f)]
-    public float treeZoneThreshold = 0.6f;
-    public float treePlacementScale = 15f;
-    [Range(0.1f,1f)]
-    public float treePlacementThreshold = 0.8f;
+    public byte surfaceBlock;
+    public byte subsurfaceBlock; 
 
-    public int maxTreeHeight = 12;
-    public int minTreeHeight = 4;
+    [Header("Major Flora")]
+    public int majorFloraIndex;
+    public float majorFloraZoneScale = 1.3f;
+    [Range(0.1f,1f)]
+    public float majorFloraZoneThreshold = 0.6f;
+    public float majorFloraPlacementScale = 15f;
+    [Range(0.1f,1f)]
+    public float majorFloraPlacementThreshold = 0.8f;
+    public bool placeMajorFlora = true;
+
+    public int maxHeight = 12;
+    public int minHeight = 4;
 
 
 

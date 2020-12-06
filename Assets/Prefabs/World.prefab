@@ -49,7 +49,10 @@ MonoBehaviour:
     enableThreading: 1
     mouseSensitivity: 100
     seed: 1234
-  biome: {fileID: 11400000, guid: 4d89dd19569e1a160a2284045ed39353, type: 2}
+  biomes:
+  - {fileID: 11400000, guid: 4d89dd19569e1a160a2284045ed39353, type: 2}
+  - {fileID: 11400000, guid: acbfce2c621b148bc8c1d9f5e236978a, type: 2}
+  - {fileID: 11400000, guid: 0b53217fc48220c9f889475ed0933264, type: 2}
   player: {fileID: 0}
   lockCursor: 1
   spawnPosition: {x: 0, y: 0, z: 0}
