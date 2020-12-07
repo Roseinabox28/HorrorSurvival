@@ -67,6 +67,7 @@ public class World : MonoBehaviour
 
     public WorldData worldData;
 
+
     public string appPath;
 
     private void Awake()
@@ -83,7 +84,9 @@ public class World : MonoBehaviour
     {
         Debug.Log("Seed: " + VoxelData.seed);
         
-        worldData = SaveSystem.LoadWorld("Prototype");
+        worldData = SaveSystem.LoadWorld("Prototype", VoxelData.seed);
+
+        Debug.Log("Loading " + worldData.worldName);
 
         string jsonImport = File.ReadAllText(Application.dataPath + "/Data/Settings/settings.cfg");
         settings = JsonUtility.FromJson<Settings>(jsonImport);
@@ -94,6 +97,7 @@ public class World : MonoBehaviour
             chunkUpdateThread = new Thread(new ThreadStart(ThreadedUpdate));
             chunkUpdateThread.Start();
         }
+        
         
 
         spawnPosition = new Vector3((VoxelData.worldSizeInChunks * VoxelData.chunkWidth) / 2f, VoxelData.chunkHeight - 50f, (VoxelData.worldSizeInChunks * VoxelData.chunkWidth) / 2f);
@@ -149,8 +153,7 @@ public class World : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F3))
             debugScreen.SetActive(!debugScreen.activeSelf);
 
-        if(Input.GetKeyDown(KeyCode.F1))
-            SaveSystem.SaveWorld(worldData);
+        
         
 
 
@@ -159,6 +162,8 @@ public class World : MonoBehaviour
 
     void LoadWorld () {
 
+        //SaveSystem.isLoading = true;
+
         for (int x = (VoxelData.worldSizeInChunks / 2) - settings.loadDistance; x < (VoxelData.worldSizeInChunks / 2) + settings.loadDistance; x++) {
             for (int z = (VoxelData.worldSizeInChunks / 2) - settings.loadDistance; z < (VoxelData.worldSizeInChunks / 2) + settings.loadDistance; z++) {
 
@@ -166,6 +171,8 @@ public class World : MonoBehaviour
 
             }
         }
+
+        //SaveSystem.isLoading = false;
 
      
 

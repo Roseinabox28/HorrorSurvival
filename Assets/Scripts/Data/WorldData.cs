@@ -39,7 +39,7 @@ public class WorldData
         lock(World.instance.chunkListThreadLock)
         {
             if(chunks.ContainsKey(coord))
-            c = chunks[coord];
+                c = chunks[coord];
             else if(!create)
                 c = null;
             else

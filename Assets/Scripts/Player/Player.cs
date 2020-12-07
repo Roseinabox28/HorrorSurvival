@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
 
     float gravity;
 
+    public PlayerData playerData;
 
     [Header("Block Placement")]
     public Transform highlightBlock;
@@ -57,13 +58,19 @@ public class Player : MonoBehaviour
    
     public Toolbar toolbar;
     public Inventory inventory;
+    public EscapeMenu escapeMenu;
 
     float isSprintingOffset = 0f;
     private bool _isInventoryButtonInUse = false;
     private MouseLook mouselook;
+
+
     
     void Start()
     {
+        
+        //playerData = SaveSystem.LoadPlayer(World.instance.worldData.worldName);
+
         hunger = maxHunger;
         playerWidth = controller.radius;
         playerHeight = controller.height;
@@ -160,6 +167,20 @@ public class Player : MonoBehaviour
         if(Input.GetAxis("Inventory") == 0)
         {
             _isInventoryButtonInUse = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            world.inUI = !world.inUI;
+            mouselook.inUI = world.inUI;
+            if(world.inUI)
+            {
+                escapeMenu.OpenMenu();
+            }
+            else
+            {
+                escapeMenu.CloseMenu();
+            }
         }
         
 
@@ -273,6 +294,23 @@ public class Player : MonoBehaviour
 
             }
             return null;
+        }
+    }
+
+    public void SaveSlots()
+    {
+        int index = 0;
+        foreach (UIItemSlot slot in toolbar.slots)
+        {
+            ItemSlot itemSlot = slot.itemSlot;
+
+            playerData.slots[index] = itemSlot;
+            index++;
+        }
+        foreach (ItemSlot itemSlot in inventory.slots)
+        {
+            playerData.slots[index] = itemSlot;
+            index++;
         }
     }
 

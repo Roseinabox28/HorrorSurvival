@@ -6,8 +6,22 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 public static class SaveSystem
 {
+    static bool _isSaving;
+    public static bool isSaving
+    {
+        get
+        {
+            return _isSaving;
+        }
+        set
+        {
+            _isSaving = value;
+        }
+    }
+    //public static bool isLoading = false;
     public static void SaveWorld(WorldData world)
     {
+        _isSaving = true;
         string savePath = World.instance.appPath + "/saves/" + world.worldName + "/";
 
         if(!Directory.Exists(savePath))
@@ -38,6 +52,49 @@ public static class SaveSystem
             count++;
         }
         Debug.Log(count + " chunks saved to file.");
+        _isSaving = false;
+    }
+
+    public static void SavePlayer(PlayerData player, string worldName)
+    {
+        string savePath = World.instance.appPath + "/saves/" + worldName + "/player/";
+
+        if(!Directory.Exists(savePath))
+            Directory.CreateDirectory(savePath);
+
+
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(savePath + "player.player", FileMode.Create);
+
+        formatter.Serialize(stream, player);
+        stream.Close();
+
+    }
+
+    public static PlayerData LoadPlayer(string worldName)
+    {
+        string loadPath = World.instance.appPath + "/saves/" + worldName + "/player/player.player";
+
+        if(File.Exists(loadPath))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(loadPath, FileMode.Open);
+
+            PlayerData playerData = formatter.Deserialize(stream) as PlayerData;
+            stream.Close();
+            return playerData;
+
+        }
+        else
+        {
+            PlayerData player = new PlayerData(World.instance.player.GetComponent<Player>());
+            SavePlayer(player, worldName);
+
+            return player;
+        }
+        
+
+
     }
 
     public static WorldData LoadWorld(string worldName, int seed = 0)
@@ -52,6 +109,7 @@ public static class SaveSystem
 
             WorldData world = formatter.Deserialize(stream) as WorldData;
             stream.Close();
+            
             return new WorldData(world);
 
         }
@@ -61,9 +119,10 @@ public static class SaveSystem
 
             WorldData world = new WorldData(worldName, seed);
             SaveWorld(world);
-
+            
             return world;
         }
+        
     }
 
     public static void SaveChunk(ChunkData chunk, string worldName)
