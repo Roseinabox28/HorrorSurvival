@@ -11,6 +11,7 @@ public class EscapeMenu : MonoBehaviour
     public GameObject menuBG;
     public GameObject escapeMenuObject;
     public GameObject settingsObject;
+    public GameObject loadingObject;
     [Header("Escape Menu UI Elements")]
     public TMP_InputField worldNameField;
 
@@ -70,6 +71,7 @@ public class EscapeMenu : MonoBehaviour
 
     public void SaveAndQuit()
     {
+        
         StartCoroutine("SaveAndQuitCor");
     }
 
@@ -97,9 +99,11 @@ public class EscapeMenu : MonoBehaviour
 
     public void SaveGame()
     {
+        loadingObject.SetActive(true);
         World.instance.worldData.worldName = worldNameField.text;
         SaveSystem.SaveWorld(World.instance.worldData);
         gameSaved = true;
+        loadingObject.SetActive(false);
     }
 
     public void EnterSettings()
